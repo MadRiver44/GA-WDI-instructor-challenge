@@ -91,5 +91,22 @@ ul li {
   font-family: 'Roboto' sans-serif;
   font-size: 15px;
   list-style: none;
-  color: hsl(99, 84%, 50%);
+  color: DeepSkyBlue;
+}
+
+.button-small {
+  font-size: 10px;
+  margin-left: 5px;
+  outline: none;
+  border: 1px DeepSkyBlue;
+}
+
+.movie-item-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
