@@ -7,11 +7,12 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser'); // FIX #1 - add bodyParser dependency
 
+const PORT = process.env.PORT || 5000; // set global var for port
+
 // ---- Middleware, The order of Middleare is IMPORTANT!! --------
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false })); // FIX #2 - missing semi-colon;
 app.use(bodyParser.json());
-
 app.use('/', express.static(path.join(__dirname, 'public'))); // FIX #3 - missing closing paren
 
 app.get('/favorites', function(req, res) {
@@ -20,8 +21,8 @@ app.get('/favorites', function(req, res) {
   res.send(data);
 }); // FIX #4 - missing closing curly brace and closing paren;
 
+// FIX #5 - POST request not GET
 app.post('favorites', function(req, res) {
-  // FIX #5 - POST request not GET
   if (!req.body.name || !req.body.oid) {
     // FIX #6 - come back to fix 'oid'
     res.send('Error');
@@ -35,6 +36,7 @@ app.post('favorites', function(req, res) {
 });
 
 // FIX #8 - use a global variable for PORT and use template literals
-app.list(PORT, function() {
+app.listen(PORT, function() {
+  // FIX #9 - replace list with "listen"
   console.log(`Listening on port ${PORT}`); // can only use template literals with backticks
 });
