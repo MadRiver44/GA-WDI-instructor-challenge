@@ -23,7 +23,8 @@ app.get('/favorites', function(req, res) {
 
 // FIX #5 - POST request not GET
 app.post('favorites', function(req, res) {
-  if (!req.body.name || !req.body.oid) {
+  if (!req.body.Title || !req.body.imdbID) {
+    // FIX #10 - change to Title and imdbID as valid keys
     // FIX #6 - come back to fix 'oid'
     res.send('Error');
     return;
