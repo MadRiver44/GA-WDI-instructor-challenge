@@ -15,6 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false })); // FIX #2 - missing semi-co
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public'))); // FIX #3 - missing closing paren
 
+// ---- CONDITIONAL EXPRESSION TO DETERMINE WHERE FILES ARE SERVED -----
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+} else {
+  app.use('/', express.static(path.join(__dirname, 'public')));
+}
+
 app.get('/favorites', function(req, res) {
   var data = fs.readFileSync('./data.json');
   res.setHeader('Content-Type', 'application/json');
