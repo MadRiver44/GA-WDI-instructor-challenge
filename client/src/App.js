@@ -17,6 +17,7 @@ class App extends Component {
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.getMovieInfo = this.getMovieInfo.bind(this);
   }
 
   getMovies() {
@@ -31,6 +32,14 @@ class App extends Component {
       });
   }
 
+  getMovieInfo(e) {
+    console.log(e.target.getAttribute('imdbid'));
+  }
+
+  addToFavorites(e) {
+    console.log(e.target.value);
+  }
+
   handleChange(e) {
     this.setState({ query: e.target.value });
   }
@@ -41,6 +50,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.data);
     return (
       <div className="App">
         <header className="title">Welcome to WDI Movie App</header>
@@ -49,7 +59,11 @@ class App extends Component {
           handleChange={this.handleChange}
           value={this.state.query}
         />
-        <Movies items={this.state.data} />
+        <Movies
+          items={this.state.data}
+          getMovieData={this.getMovieData}
+          addToFavorites={this.addToFavorites}
+        />
       </div>
     );
   }
