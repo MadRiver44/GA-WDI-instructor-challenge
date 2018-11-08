@@ -68,3 +68,28 @@ form .button:hover {
   font-size: 25px;
   color: DeepSkyBlue;
 }
+
+#movie-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 20px, 20px, 20px, 20px;
+  padding: 20px;
+  height: 100%;
+  max-width: 100%;
+  color: white;
+}
+
+ul li {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  text-align: left;
+  text-decoration: none;
+  font-family: 'Roboto' sans-serif;
+  font-size: 15px;
+  list-style: none;
+  color: hsl(99, 84%, 50%);
+}
