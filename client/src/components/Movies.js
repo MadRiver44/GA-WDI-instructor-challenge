@@ -2,7 +2,7 @@ import React from 'react';
 import Movie from './Movie';
 
 const Movies = props => {
-  console.log(props);
+  //console.log(props);
   const { items, getMovieInfo, addToFavorites } = props;
   const listItems = items.map((item, index) => (
     <Movie
@@ -15,7 +15,7 @@ const Movies = props => {
       imdbid={item.imdbID}
     />
   ));
-  return <div id="movie-container">{listItems}</div>;
+  return <ul id="movie-container">{listItems}</ul>;
 };
 
 export default Movies;
