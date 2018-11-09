@@ -4,10 +4,11 @@ import Movie from './Movie';
 const Movies = props => {
   //console.log(props);
   const { items, getMovieInfo, addToFavorites } = props;
-  const listItems = items.map((item, index) => (
+  const listItems = items.map((item, id) => (
     <Movie
-      key={index}
+      key={id}
       id={item.imdbID}
+      imdbID={item.imdbID}
       title={item.Title}
       poster={item.Poster}
       getMovieInfo={getMovieInfo}
