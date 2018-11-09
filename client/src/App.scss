@@ -127,22 +127,42 @@ ul li {
 }
 
 .modal {
+  display: flex;
   position: fixed;
-  left: 0;
-  top: 0;
+  left: calc(width /2);
+  top: 200px;
   z-index: 1000;
   width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4rem;
+  font-size: 10px;
   color: #000;
 }
 
 .modal-1 {
-  background: #fff;
+  background: WhiteSmoke;
   border-radius: 0.5rem;
-  padding: 5rem;
+  padding: 20px;
+  width: 600px;
+
+  p {
+    font: 'Roboto', sans-serif;
+    font-size: 15px;
+    padding-left: 20px;
+    display: inline-block;
+    color: DeepSkyBlue;
+  }
+}
+h5 {
+  font-size: 20px;
+}
+
+.info {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding-left: 20px;
 }
