@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from './Modal';
 
 const Movie = props => {
-  console.log(props);
+  //console.log(props);
   const {
     id,
     imdbID,
@@ -13,11 +13,12 @@ const Movie = props => {
     isOpen,
     toggleModal,
     closeModal,
+    modalData,
   } = props;
   return (
     <React.Fragment>
       <li className="movie" id={id}>
-        <img srcSet={poster} alt={title} imdbid={imdbID} selector="on" />
+        <img srcSet={poster} alt={title} imdbid={imdbID} />
         <div className="movie-title">{title}</div>
         <button
           type="submit"
@@ -31,7 +32,30 @@ const Movie = props => {
         </button>
       </li>
       <Modal className="modal" selector="#modal-root" isOpen={isOpen} onClick={closeModal}>
-        <div className="modal-1">Modal 1 is open</div>
+        <div className="modal-1">
+          {' '}
+          <h5>{modalData.Title}</h5>
+          <div className="info">
+            Year:<p>{modalData.Year}</p>
+          </div>
+          <div className="info">
+            {' '}
+            Rated:<p>{modalData.Rated}</p>
+          </div>
+          <div className="info">
+            Actors:<p>{modalData.Actors}</p>
+          </div>
+          <div className="info">
+            Director:<p>{modalData.Director}</p>
+          </div>
+          <div className="info">
+            Genre:<p>{modalData.Genre}</p>
+          </div>
+          <div className="info">
+            Imdb Rating:<p>{modalData.imdbRating}</p>
+          </div>
+        </div>
+        }
       </Modal>
     </React.Fragment>
   );
