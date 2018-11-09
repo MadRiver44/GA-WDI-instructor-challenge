@@ -23,6 +23,8 @@ class App extends Component {
     this.getMovies = this.getMovies.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.addToFavorites = this.addToFavorites.bind(this);
+    this.viewFavorites = this.viewFavorites.bind(this);
   }
 
   getMovies() {
@@ -51,11 +53,6 @@ class App extends Component {
       });
   }
 
-  // modalDisplay(data, element) {
-  //   console.log(data, element, 'line 56');
-  //   element.innerHTML = `<h3>Title: ${data.Title}</h3>`;
-  // }
-
   openModal(e) {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
     this.getMovieInfo(e);
@@ -65,7 +62,27 @@ class App extends Component {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
   addToFavorites(e) {
-    console.log(e.target.value);
+    e.persist();
+    let event = e.target;
+    var id = e.target.id;
+    fetch('/favorites', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state.data[Number(id)]),
+    });
+  }
+
+  viewFavorites(e) {
+    e.persist();
+    console.log('viewFavorites was clicked', e);
+    fetch(`/favorites`)
+      .then(res => res.json())
+      .catch(error => {
+        console.log('Error fetching data', error);
+      })
+      .then(jsonRes => {
+        this.setState({ data: jsonRes });
+      });
   }
 
   handleChange(e) {
@@ -75,14 +92,15 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault();
     this.getMovies();
-    //this.getMovieInfo();
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className="App">
         <header className="title">Welcome to WDI Movie App</header>
+        <h5 className="favorites" onClick={this.viewFavorites}>
+          View Favorites
+        </h5>
         <Search
           handleClick={this.handleClick}
           handleChange={this.handleChange}
