@@ -166,3 +166,13 @@ h5 {
   align-items: baseline;
   padding-left: 20px;
 }
+
+.favorites {
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+  text-decoration: underline;
+  &:hover {
+    color: skyblue;
+  }
+}
