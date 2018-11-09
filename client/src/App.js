@@ -37,12 +37,13 @@ class App extends Component {
 
   getMovieInfo(e) {
     console.log('button is clicked');
-    //const imdbID = e.target.getAttribute('imdbid');
-    //console.log(e.target, imdbID);
+    const imdbID = e.target.getAttribute('imdbid');
+    console.log(e.target, imdbID);
   }
 
-  openModal() {
+  openModal(e) {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
+    this.getMovieInfo(e);
   }
 
   closeModal() {
@@ -59,7 +60,7 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault();
     this.getMovies();
-    this.getMovieInfo();
+    //this.getMovieInfo();
   }
 
   render() {
