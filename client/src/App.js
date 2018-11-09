@@ -6,6 +6,7 @@ import Movies from './components/Movies';
 
 // const API = `http://www.omdbapi.com/?apikey=`;
 // const API_KEY = `apikey=21d400e3`;
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class App extends Component {
       query: '',
       data: [],
       modalIsOpen: false,
+      modalData: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -21,6 +23,7 @@ class App extends Component {
     this.getMovies = this.getMovies.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.modalDisplay = this.modalDisplay.bind(this);
   }
 
   getMovies() {
@@ -38,7 +41,20 @@ class App extends Component {
   getMovieInfo(e) {
     console.log('button is clicked');
     const imdbID = e.target.getAttribute('imdbid');
-    console.log(e.target, imdbID);
+    console.log(e.target, imdbID, 'line43');
+    fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=21d400e3`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({ modalData: res });
+      })
+      .catch(err => {
+        console.log(`${err}`);
+      });
+  }
+
+  modalDisplay(data, element) {
+    console.log(data, element, 'line 56');
+    element.innerHTML = `<h3>Title: ${data.Title}</h3>`;
   }
 
   openModal(e) {
@@ -74,6 +90,7 @@ class App extends Component {
           value={this.state.query}
         />
         <Movies
+          modalData={this.state.modalData}
           toggleModal={this.openModal}
           isOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
