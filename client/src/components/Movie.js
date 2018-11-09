@@ -3,8 +3,17 @@ import Modal from './Modal';
 
 const Movie = props => {
   console.log(props);
-  const { id, imdbID, title, poster, getMovieInfo, addToFavorites, isOpen, toggleModal, closeModal } = props;
-  console.log(isOpen);
+  const {
+    id,
+    imdbID,
+    title,
+    poster,
+    getMovieInfo,
+    addToFavorites,
+    isOpen,
+    toggleModal,
+    closeModal,
+  } = props;
   return (
     <React.Fragment>
       <li className="movie" id={id}>
@@ -13,7 +22,7 @@ const Movie = props => {
         <button
           type="submit"
           className="button-small"
-          onClick={(getMovieInfo, toggleModal)}
+          onClick={toggleModal}
           imdbid={imdbID}
           title={title}
           id={id}>
