@@ -34,7 +34,8 @@ class App extends Component {
 
   getMovieInfo(e) {
     console.log('button is clicked');
-    console.log(e.target);
+    const imdbID = e.target.getAttribute('imdbid');
+    console.log(e.target, imdbID);
   }
 
   addToFavorites(e) {
