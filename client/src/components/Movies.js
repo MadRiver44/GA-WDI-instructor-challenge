@@ -3,7 +3,7 @@ import Movie from './Movie';
 
 const Movies = props => {
   //console.log(props);
-  const { items, getMovieInfo, addToFavorites } = props;
+  const { items, getMovieInfo, addToFavorites, isOpen, toggleModal, closeModal } = props;
   const listItems = items.map((item, id) => (
     <Movie
       key={id}
@@ -14,6 +14,9 @@ const Movies = props => {
       getMovieInfo={getMovieInfo}
       addToFavorites={addToFavorites}
       imdbid={item.imdbID}
+      isOpen={isOpen}
+      toggleModal={toggleModal}
+      closeModal={closeModal}
     />
   ));
   return <ul id="movie-container">{listItems}</ul>;
