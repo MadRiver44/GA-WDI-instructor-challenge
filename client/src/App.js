@@ -23,7 +23,6 @@ class App extends Component {
     this.getMovies = this.getMovies.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
-    this.modalDisplay = this.modalDisplay.bind(this);
   }
 
   getMovies() {
@@ -52,10 +51,10 @@ class App extends Component {
       });
   }
 
-  modalDisplay(data, element) {
-    console.log(data, element, 'line 56');
-    element.innerHTML = `<h3>Title: ${data.Title}</h3>`;
-  }
+  // modalDisplay(data, element) {
+  //   console.log(data, element, 'line 56');
+  //   element.innerHTML = `<h3>Title: ${data.Title}</h3>`;
+  // }
 
   openModal(e) {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
