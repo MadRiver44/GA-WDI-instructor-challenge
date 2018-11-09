@@ -7,7 +7,7 @@ const Movies = props => {
   const listItems = items.map((item, id) => (
     <Movie
       key={id}
-      id={item.imdbID}
+      id={id}
       imdbID={item.imdbID}
       title={item.Title}
       poster={item.Poster}
