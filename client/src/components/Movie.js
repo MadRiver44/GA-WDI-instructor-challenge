@@ -28,7 +28,16 @@ const Movie = props => {
           title={title}
           id={id}>
           {' '}
-          FAV
+          Info!!
+        </button>
+        <button
+          type="submit"
+          className="button-small"
+          onClick={addToFavorites}
+          imdbid={imdbID}
+          id={id}>
+          {' '}
+          Fav
         </button>
       </li>
       <Modal className="modal" selector="#modal-root" isOpen={isOpen} onClick={closeModal}>
