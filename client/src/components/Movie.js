@@ -7,7 +7,13 @@ const Movie = props => {
     <li className="movie" id={id}>
       <img srcSet={poster} alt={title} imdbid={imdbID} selector="on" />
       <div className="movie-title">{title}</div>
-      <button type="submit" className="button-small" onClick={getMovieInfo} imdbid={imdbID}>
+      <button
+        type="submit"
+        className="button-small"
+        onClick={getMovieInfo}
+        imdbid={imdbID}
+        title={title}
+        id={id}>
         {' '}
         FAV
       </button>
