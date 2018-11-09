@@ -12,12 +12,15 @@ class App extends Component {
     this.state = {
       query: '',
       data: [],
+      modalIsOpen: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getMovieInfo = this.getMovieInfo.bind(this);
     this.getMovies = this.getMovies.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
   getMovies() {
@@ -34,10 +37,17 @@ class App extends Component {
 
   getMovieInfo(e) {
     console.log('button is clicked');
-    const imdbID = e.target.getAttribute('imdbid');
-    console.log(e.target, imdbID);
+    //const imdbID = e.target.getAttribute('imdbid');
+    //console.log(e.target, imdbID);
   }
 
+  openModal() {
+    this.setState({ modalIsOpen: !this.state.modalIsOpen });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: !this.state.modalIsOpen });
+  }
   addToFavorites(e) {
     console.log(e.target.value);
   }
@@ -49,7 +59,7 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault();
     this.getMovies();
-    //this.getMovieInfo();
+    this.getMovieInfo();
   }
 
   render() {
@@ -63,6 +73,9 @@ class App extends Component {
           value={this.state.query}
         />
         <Movies
+          toggleModal={this.openModal}
+          isOpen={this.state.modalIsOpen}
+          closeModal={this.closeModal}
           items={this.state.data}
           getMovieInfo={this.getMovieInfo}
           addToFavorites={this.addToFavorites}
