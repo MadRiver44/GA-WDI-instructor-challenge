@@ -15,9 +15,9 @@ class App extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getMovieInfo = this.getMovieInfo.bind(this);
+    this.getMovies = this.getMovies.bind(this);
   }
 
   getMovies() {
@@ -33,7 +33,8 @@ class App extends Component {
   }
 
   getMovieInfo(e) {
-    console.log(e.target.getAttribute('imdbid'));
+    console.log('button is clicked');
+    console.log(e.target);
   }
 
   addToFavorites(e) {
@@ -47,6 +48,7 @@ class App extends Component {
   handleClick(e) {
     e.preventDefault();
     this.getMovies();
+    //this.getMovieInfo();
   }
 
   render() {
@@ -61,7 +63,7 @@ class App extends Component {
         />
         <Movies
           items={this.state.data}
-          getMovieData={this.getMovieData}
+          getMovieInfo={this.getMovieInfo}
           addToFavorites={this.addToFavorites}
         />
       </div>
