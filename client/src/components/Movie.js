@@ -20,25 +20,27 @@ const Movie = props => {
       <li className="movie" id={id}>
         <img srcSet={poster} alt={title} imdbid={imdbID} />
         <div className="movie-title">{title}</div>
-        <button
-          type="submit"
-          className="button-small"
-          onClick={toggleModal}
-          imdbid={imdbID}
-          title={title}
-          id={id}>
-          {' '}
-          Info!!
-        </button>
-        <button
-          type="submit"
-          className="button-small"
-          onClick={addToFavorites}
-          imdbid={imdbID}
-          id={id}>
-          {' '}
-          Fav
-        </button>
+        <div className="button-container">
+          <button
+            type="submit"
+            className="button-small"
+            onClick={toggleModal}
+            imdbid={imdbID}
+            title={title}
+            id={id}>
+            {' '}
+            Info!!
+          </button>
+          <button
+            type="submit"
+            className="button-small"
+            onClick={addToFavorites}
+            imdbid={imdbID}
+            id={id}>
+            {' '}
+            Fav
+          </button>
+        </div>
       </li>
       <Modal className="modal" selector="#modal-root" isOpen={isOpen} onClick={closeModal}>
         <div className="modal-1">
@@ -64,7 +66,6 @@ const Movie = props => {
             Imdb Rating:<p>{modalData.imdbRating}</p>
           </div>
         </div>
-        }
       </Modal>
     </React.Fragment>
   );
