@@ -8,17 +8,17 @@ As an instructor, this exercise provides a comprehensive array of lessons to be 
 
 ## Topics 
 
-1. [What do we have here?](#starting)
-2. [Model View Controller and Setup](#mvc)
-3. [Server Side and Express](#server)
-4. [Front End and React - Why?](#react)
-5. [WorkFlow](#workflow)
-6. [Css and Sass](#sass)
-7. [Tools](#tools)
-8. [When You run into problems](#help)
-9. [Stretching Yourself](#improving)
-10. [Tuning up](#cleanup)
-11. [Deployment](#deployment)
+    1. [What do we have here?](#starting)
+    2. [Model View Controller and Setup](#mvc)
+    3. [Server Side and Express](#server)
+    4. [Front End and React - Why?](#react)
+    5. [WorkFlow](#workflow)
+    6. [Css and Sass](#sass)
+    7. [Tools](#tools)
+    8. [When You run into problems](#help)
+    9. [Stretching Yourself](#improving)
+    10. [Tuning up](#cleanup)
+    11. [Deployment](#deployment)
 
 ## starting
 
