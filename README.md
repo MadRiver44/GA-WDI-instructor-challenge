@@ -30,7 +30,7 @@ I would start with a making sure students have a core understanding of how the i
     4. the difference between client-side code and server-side code.
     5. what are the ways we can save information?
 
-    ![Relationship of web components](https://mdn.mozillademos.org/files/13839/Web%20Application%20with%20HTML%20and%20Steps.png)
+![Diagram](https://mdn.mozillademos.org/files/13839/Web%20Application%20with%20HTML%20and%20Steps.png)
 
 ## mvc
 
