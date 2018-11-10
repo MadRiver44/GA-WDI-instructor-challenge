@@ -97,10 +97,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="title">Welcome to WDI Movie App</header>
-        <h5 className="favorites" onClick={this.viewFavorites}>
+        <header className="title">
+          <div className="logo">
+            <img srcSet="movie-icon.png" width="200px" />{' '}
+            <img className="ga-logo" srcSet="GA.png" height="120px" />
+          </div>
+          Welcome to WDI Movie App
+        </header>
+        <div className="favorites" onClick={this.viewFavorites}>
           View Favorites
-        </h5>
+        </div>
         <Search
           handleClick={this.handleClick}
           handleChange={this.handleChange}
