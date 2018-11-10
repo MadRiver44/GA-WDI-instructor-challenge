@@ -8,27 +8,27 @@ As an instructor, this exercise provides a comprehensive array of lessons to be 
 
 ## Topics 
 
-    1. [What do we have here?](#starting)
-    2. [Model View Controller and Setup](#mvc)
-    3. [Server Side and Express](#server)
-    4. [Front End and React - Why?](#react)
-    5. [WorkFlow](#workflow)
-    6. [Css and Sass](#sass)
-    7. [Tools](#tools)
-    8. [When You run into problems](#help)
-    9. [Stretching Yourself](#improving)
-    10. [Tuning up](#cleanup)
-    11. [Deployment](#deployment)
+1. [What do we have here?](#starting)
+2. [Model View Controller and Setup](#mvc)
+3. [Server Side and Express](#server)
+4. [Front End and React - Why?](#react)
+5. [WorkFlow](#workflow)
+6. [Css and Sass](#sass)
+7. [Tools](#tools)
+8. [When You run into problems](#help)
+9. [Stretching Yourself](#improving)
+10. [Tuning up](#cleanup)
+11. [Deployment](#deployment)
 
 ## starting
 
 I would start with a making sure students have a core understanding of how the internet works.
 
-    1. what is a client and a server?
-    2. how does a client make a request to get a resource and display it on the screen?
-    3. http protocols and information sent upon a request and response.
-    4. the difference between client-side code and server-side code.
-    5. what are the ways we can save information?
+1. what is a client and a server?
+2. how does a client make a request to get a resource and display it on the screen?
+3. http protocols and information sent upon a request and response.
+4. the difference between client-side code and server-side code.
+5. what are the ways we can save information?
 
 ![Diagram](https://mdn.mozillademos.org/files/13839/Web%20Application%20with%20HTML%20and%20Steps.png)
 
@@ -60,7 +60,7 @@ As we create our app we need to style it. At this point I would introduce prepro
 
 ## Tools
 
-Besides Git and Github what else can we use to help us? For example, Postman to view the shape of our reponse from a request to the api. Balsamiq and Sketch for mockups. Codesandbox.io and Codepen.io for React app experiments and the latter for css inspiration and testing. 
+Besides Git and Github what else can we use to help us? For example, Postman to view the shape of our reponse from a request to the api. Balsamiq and Sketch for mockups. Codesandbox.io and Codepen.io for React app experiments and the latter for css inspiration and testing. Emmet is also a cool tool I would expose them to.
 
 The number one tool we have in our arsenal are the Docs. For example, one of the last errors I had to fix to get the data working on the backend was looking up the FileSystem module in the Node docs and seeing that the .writeFile method requires a callback. 
 
