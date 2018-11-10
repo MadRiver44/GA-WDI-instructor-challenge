@@ -2,7 +2,6 @@ import React from 'react';
 import Movie from './Movie';
 
 const Movies = props => {
-  //console.log(props);
   const { items, getMovieInfo, addToFavorites, isOpen, toggleModal, closeModal, modalData } = props;
   const listItems = items.map((item, id) => (
     <Movie
