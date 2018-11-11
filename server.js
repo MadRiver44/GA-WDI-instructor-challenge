@@ -9,6 +9,17 @@ const bodyParser = require('body-parser'); // FIX #1 - add bodyParser dependency
 
 const PORT = process.env.PORT || 3001; // set global var for port
 
+// ---- CONDITIONAL EXPRESSION TO DETERMINE WHERE FILES ARE SERVED -----
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname + 'build', 'index.html'));
+  });
+}
+
 // ---- Middleware, The order of Middleare is IMPORTANT!! --------
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false })); // FIX #2 - missing semi-colon;
@@ -44,17 +55,6 @@ app.post('/favorites', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.send(data);
 });
-
-// ---- CONDITIONAL EXPRESSION TO DETERMINE WHERE FILES ARE SERVED -----
-
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  // app.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
-  });
-}
 
 // FIX #8 - use a global variable for PORT and use template literals
 app.listen(PORT, function() {
