@@ -79,7 +79,7 @@ class App extends Component {
     fetch(`/favorites`)
       .then(res => res.json())
       .catch(error => {
-        console.log('Error fetching data', error);
+        console.log('Error fetching data', error.info, error.path, error.address);
       })
       .then(jsonRes => {
         this.setState({ data: jsonRes });
