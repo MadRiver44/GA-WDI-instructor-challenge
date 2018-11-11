@@ -177,7 +177,7 @@ ul li {
 .modal {
   display: flex;
   position: fixed;
-  left: calc(width /2);
+  left: 50%;
   top: 50px;
   z-index: 1000;
   width: 100%;
