@@ -74,8 +74,18 @@ class App extends Component {
     });
   }
 
-  viewFavorites(e) {
-    e.persist();
+  // viewFavorites(e) {
+  //   e.persist();
+  //   fetch(`/favorites`)
+  //     .then(res => res.json())
+  //     .catch(error) => {
+  //       console.log('Error fetching data', error);
+  //     })
+  //     .then(jsonRes => {
+  //       this.setState({ data: jsonRes });
+  //     });
+  // }
+  viewFavorites() {
     fetch(`/favorites`)
       .then(res => res.json())
       .catch(error => {
@@ -94,6 +104,7 @@ class App extends Component {
     e.preventDefault();
     this.getMovies();
   }
+
   // our root UI, the children here get properties pass to them form the parent
   // for example, <Movies /> gets many props as a child of App
   render() {
