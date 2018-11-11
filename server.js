@@ -99,7 +99,13 @@ app.post('/favorites', function(req, res) {
 
   var data = JSON.parse(fs.readFileSync('./data.json'));
   data.push(req.body);
-  fs.writeFile('./data.json', JSON.stringify(data));
+  fs.writeFile('./data.json', JSON.stringify(data), err => {
+    if (err) {
+      throw err;
+    } else {
+      console.log('The file has been saved');
+    }
+  });
   res.setHeader('Content-Type', 'application/json');
   res.send(data);
 });
