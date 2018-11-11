@@ -15,17 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false })); // FIX #2 - missing semi-co
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'public'))); // FIX #3 - missing closing paren
 
-// ---- CONDITIONAL EXPRESSION TO DETERMINE WHERE FILES ARE SERVED -----
-
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  // Handle React routing, return all requests to React app
-  app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
-
 // ----- HTTP Methods ---------------------------
 app.get('/favorites', function(req, res) {
   var data = fs.readFileSync('./data.json');
@@ -55,6 +44,17 @@ app.post('/favorites', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   res.send(data);
 });
+
+// ---- CONDITIONAL EXPRESSION TO DETERMINE WHERE FILES ARE SERVED -----
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 
 // FIX #8 - use a global variable for PORT and use template literals
 app.listen(PORT, function() {
