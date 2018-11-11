@@ -1,3 +1,16 @@
+// remove logo based on screen size
+@media screen and (max-width: 720px) {
+  .logo {
+    display: hidden;
+    opacity: 0;
+  }
+  .ga-logo {
+    display: hidden;
+    opacity: 0;
+  }
+}
+
+// header section -----------------------------
 header {
   background-color: WhiteSmoke;
   display: flex;
@@ -31,6 +44,7 @@ header {
   text-transform: uppercase;
 }
 
+// search -----------------------------
 .search-container {
   display: flex;
   flex-direction: row;
@@ -85,6 +99,7 @@ form .button:hover {
   color: DeepSkyBlue;
 }
 
+// movie item -----------------------------
 .movie {
   display: flex;
   justify-content: center;
@@ -105,12 +120,9 @@ form .button:hover {
   justify-content: space-around;
 }
 .button-small {
-  //right: 85px;
   font-size: 20px;
   font-weight: lighter;
   color: DeepSkyBlue;
-  //margin-left: 5px;
-  //outline: none;
   border: none; //1px DeepSkyBlue;
   background-color: transparent;
   &:hover {
@@ -118,6 +130,7 @@ form .button:hover {
   }
 }
 
+// movie container -----------------------------
 #movie-container {
   display: flex;
   flex-direction: row;
@@ -132,7 +145,6 @@ form .button:hover {
 }
 
 .movie-title {
-  //color: WhiteSmoke;
   text-align: left;
   flex-wrap: wrap;
   font-size: 20px;
@@ -142,6 +154,7 @@ form .button:hover {
   width: 200px;
 }
 
+// list of movies -----------------------------
 ul li {
   display: flex;
   flex-wrap: wrap;
@@ -154,6 +167,7 @@ ul li {
   color: DeepSkyBlue;
 }
 
+// modal -----------------------------
 .modal {
   display: flex;
   position: fixed;
@@ -192,6 +206,7 @@ ul li {
   padding-left: 20px;
 }
 
+// favorites link -----------------------------
 .favorites {
   position: absolute;
   right: 20px;

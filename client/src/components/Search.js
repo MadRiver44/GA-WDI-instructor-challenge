@@ -10,7 +10,7 @@ const Search = props => {
         <input
           type="search"
           id="searchbar"
-          placeholder="Search"
+          placeholder="enter a movie title"
           value={query}
           onChange={handleChange}
         />

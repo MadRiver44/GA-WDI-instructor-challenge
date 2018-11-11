@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import './App.scss';
 import Search from './components/Search';
 import Movies from './components/Movies';
-//import axios from 'axios';
 
-// const API = `http://www.omdbapi.com/?apikey=`;
-// const API_KEY = `apikey=21d400e3`;
-
+// App is the root component and where our app 'state lives'.
+// State is the data and that we need to provide to children components further
+// down the component tree.
 class App extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +15,9 @@ class App extends Component {
       modalIsOpen: false,
       modalData: [],
     };
-
+    // We need to bind our functions to App -- let's discuss class keyword in JS
+    // and why we need to do this, are there other ways? Experimental Publica class fields
+    // syntax and inline.
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getMovieInfo = this.getMovieInfo.bind(this);
@@ -26,7 +27,8 @@ class App extends Component {
     this.addToFavorites = this.addToFavorites.bind(this);
     this.viewFavorites = this.viewFavorites.bind(this);
   }
-
+  // We use fetch api(can also use a 3rd party Promise library like axios)
+  // to make a request and process a response.
   getMovies() {
     fetch(`http://www.omdbapi.com/?s=${this.state.query}&apikey=21d400e3`)
       .then(res => res.json())
@@ -40,9 +42,8 @@ class App extends Component {
   }
 
   getMovieInfo(e) {
-    console.log('button is clicked');
+    // console.log('button is clicked');
     const imdbID = e.target.getAttribute('imdbid');
-    console.log(e.target, imdbID, 'line43');
     fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=21d400e3`)
       .then(res => res.json())
       .then(res => {
@@ -61,6 +62,7 @@ class App extends Component {
   closeModal() {
     this.setState({ modalIsOpen: !this.state.modalIsOpen });
   }
+
   addToFavorites(e) {
     e.persist();
     let event = e.target;
@@ -74,14 +76,13 @@ class App extends Component {
 
   viewFavorites(e) {
     e.persist();
-    console.log('viewFavorites was clicked', e);
     fetch(`/favorites`)
       .then(res => res.json())
       .catch(error => {
         console.log('Error fetching data', error);
       })
-      .then(jsonRes => {
-        this.setState({ data: jsonRes });
+      .then(res => {
+        this.setState({ data: res });
       });
   }
 
@@ -93,7 +94,8 @@ class App extends Component {
     e.preventDefault();
     this.getMovies();
   }
-
+  // our root UI, the children here get properties pass to them form the parent
+  // for example, <Movies /> gets many props as a child of App
   render() {
     return (
       <div className="App">

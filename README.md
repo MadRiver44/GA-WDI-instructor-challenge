@@ -40,6 +40,8 @@ With an understanding of how things works behind the scences after we press 'ent
 
 This Library app from my repo represents a clear and well organized approach with Node and Express on how we define Models - a representation of data for our database and receives input form our controller, Views - how we create templates and partials (using pug in Express) for information to render a view, and Controllers - accepts input and controls what parts of the app are needed, routes, data, etc.
 
+In addition, I would talk about Database setup in Mongo and Postgres and the difference with this app and a how data persistence is achieved with a true backend.
+
 ## Server
 
 Now we can start walking though our server.js code and understand what things are present such as our imports/ required modules, middleware (why order matters), what is Express.js and the abstraction over Node.js, core Node modules such as FileSystem and how we write to data.json, HTTP methods, and lastly, setting up a server.

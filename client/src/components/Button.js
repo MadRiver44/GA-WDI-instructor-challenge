@@ -1,7 +1,8 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 
-// stateless functional component
+// Stateless Functional component
+// This handles our event handler to trigger getMovies()
 const Button = props => {
   const { handleClick } = props;
   return (
@@ -13,6 +14,3 @@ const Button = props => {
 
 export default Button;
 
-// Button.propTypes = {
-//   handleClick: PropTypes.func.isRequired,
-// };
