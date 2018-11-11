@@ -10,9 +10,15 @@
   }
 }
 
+// Sass variables
+$primary-color: DeepSkyBlue;
+$secondary-color: WhiteSmoke;
+$fnt-stk: 'Roboto', sans-serif;
+$fnt-wt: lighter;
+
 // header section -----------------------------
 header {
-  background-color: WhiteSmoke;
+  background-color: $secondary-color;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -38,7 +44,7 @@ header {
   align-items: center;
   font: 35px helvetica neue, open sans;
   font-weight: lighter;
-  color: DeepSkyBlue; //aqua;
+  color: $primary-color; //aqua;
   text-align: center;
   padding: 80px 50px;
   text-transform: uppercase;
@@ -73,15 +79,15 @@ input[type='search'] {
   border: 2px solid #737373;
   border-width: 0 0 3px;
   background-color: transparent;
-  font: 22px 'Roboto', sans-serif;
-  font-weight: lighter;
+  font: 22px $fnt-stk;
+  font-weight: $fnt-wt;
   text-align: center;
   padding: 0.125em 0.225em;
   width: 85%;
 }
 
 input[type='search']:focus {
-  color: DeepSkyBlue;
+  color: $primary-color;
   border-color: white;
   outline: none;
 }
@@ -90,13 +96,13 @@ input[type='search']:focus {
   font-size: 20px;
   margin-left: 5px;
   outline: none;
-  border: 1px DeepSkyBlue;
+  border: 1px $primary-color;
   border-radius: 10px;
 }
 
 form .button:hover {
   font-size: 25px;
-  color: DeepSkyBlue;
+  color: $primary-color;
 }
 
 // movie item -----------------------------
@@ -121,8 +127,8 @@ form .button:hover {
 }
 .button-small {
   font-size: 20px;
-  font-weight: lighter;
-  color: DeepSkyBlue;
+  font-weight: $fnt-wt;
+  color: $primary-color;
   border: none; //1px DeepSkyBlue;
   background-color: transparent;
   &:hover {
@@ -148,7 +154,7 @@ form .button:hover {
   text-align: left;
   flex-wrap: wrap;
   font-size: 20px;
-  font-weight: lighter;
+  font-weight: $fnt-wt;
   padding-bottom: 10px;
   text-align: center;
   width: 200px;
@@ -161,10 +167,10 @@ ul li {
   width: 300px;
   text-align: left;
   text-decoration: none;
-  font-family: 'Roboto' sans-serif;
+  font-family: $fnt-stk;
   font-size: 15px;
   list-style: none;
-  color: DeepSkyBlue;
+  color: $primary-color;
 }
 
 // modal -----------------------------
@@ -184,17 +190,17 @@ ul li {
 }
 
 .modal-1 {
-  background: WhiteSmoke;
+  background: $secondary-color;
   border-radius: 0.5rem;
   padding: 20px;
   width: 600px;
 
   p {
-    font: 'Roboto', sans-serif;
+    font: $fnt-stk;
     font-size: 15px;
     padding-left: 20px;
     display: inline-block;
-    color: DeepSkyBlue;
+    color: $primary-color;
   }
 }
 
@@ -211,14 +217,14 @@ ul li {
   position: absolute;
   right: 20px;
   font-size: 18px;
-  font: 'Roboto' sans-serif;
-  font-weight: lighter;
+  font: $fnt-stk;
+  font-weight: $fnt-wt;
   cursor: pointer;
   padding: 10px 20px;
-  color: WhiteSmoke;
+  color: $secondary-color;
   transition: 0.5s;
   text-decoration: none;
   &:hover {
-    color: skyblue;
+    color: $primary-color;
   }
 }
