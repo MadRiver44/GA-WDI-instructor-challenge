@@ -36,13 +36,11 @@ class App extends Component {
         console.log('Error fetching data', error);
       })
       .then(res => {
-        //console.log(res.Search);
         this.setState({ data: res.Search });
       });
   }
 
   getMovieInfo(e) {
-    // console.log('button is clicked');
     const imdbID = e.target.getAttribute('imdbid');
     fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=21d400e3`)
       .then(res => res.json())
@@ -85,14 +83,16 @@ class App extends Component {
   //       this.setState({ data: jsonRes });
   //     });
   // }
-  viewFavorites() {
+  viewFavorites(e) {
+    e.persist();
     fetch(`/favorites`)
       .then(res => res.json())
+      .then(res => console.log(res.json))
       .catch(error => {
         console.log('Error fetching data', error);
       })
-      .then(jsonRes => {
-        this.setState({ data: jsonRes });
+      .then(res => {
+        this.setState({ data: res });
       });
   }
 
@@ -112,8 +112,8 @@ class App extends Component {
       <div className="App">
         <header className="title">
           <div className="logo">
-            <img srcSet="movie-icon.png" width="200px" />{' '}
-            <img className="ga-logo" srcSet="GA.png" height="120px" />
+            <img srcSet="movie-icon.png" width="200px" alt="movie-icon"/>{' '}
+            <img className="ga-logo" srcSet="GA.png" height="120px" alt="GA logo"/>
           </div>
           Welcome to WDI Movie App
         </header>
