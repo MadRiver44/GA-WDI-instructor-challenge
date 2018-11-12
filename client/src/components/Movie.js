@@ -1,6 +1,15 @@
 import React from 'react';
 import Modal from './Modal';
 
+/*
+Another Stateless Functional Component, it get props from <Movies />
+and returns a list item with data and event handlers from props.
+
+We use React.Fragment because our <Movie /> returns multiple elements.
+This is useful for performance reasons so we group
+children without adding extra nodes to the DOM.
+*/
+
 const Movie = props => {
   const {
     id,

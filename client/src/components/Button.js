@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Stateless Functional component
+// This handles our event handler to trigger getMovies()
 const Button = props => {
   const { handleClick } = props;
   return (

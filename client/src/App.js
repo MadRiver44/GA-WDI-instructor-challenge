@@ -3,6 +3,12 @@ import './App.scss';
 import Search from './components/Search';
 import Movies from './components/Movies';
 
+/*
+App is the root component and where our app 'state lives'.
+State is the data and that we need to provide to children components further
+down the component tree.
+*/
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -12,7 +18,11 @@ class App extends Component {
       modalIsOpen: false,
       modalData: [],
     };
-
+    /*
+    We need to bind our functions to App -- let's discuss class keyword in JS
+    and why we need to do this, are there other ways? Experimental Public class fields
+    syntax and inline.
+    */
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.getMovieInfo = this.getMovieInfo.bind(this);
@@ -23,6 +33,10 @@ class App extends Component {
     this.viewFavorites = this.viewFavorites.bind(this);
   }
 
+  /*
+  We use fetch api(can also use a 3rd party Promise library like axios)
+  to make a request and process a response.
+  */
   getMovies() {
     fetch(`http://www.omdbapi.com/?s=${this.state.query}&apikey=21d400e3`)
       .then(res => res.json())
@@ -66,18 +80,6 @@ class App extends Component {
     });
   }
 
-  // viewFavorites(e) {
-  //   e.persist();
-  //   fetch(`/favorites`)
-  //     .then(res => res.json())
-  //     .catch(error => {
-  //       console.log('Error fetching data', error);
-  //     })
-  //     .then(res => {
-  //       this.setState({ data: res });
-  //     });
-  // }
-
   viewFavorites(e) {
     e.persist();
     console.log('viewFavorites was clicked', e);
@@ -99,7 +101,10 @@ class App extends Component {
     e.preventDefault();
     this.getMovies();
   }
-
+  /*
+  Our root UI, the children here get properties pass to them from the parent
+  for example, <Movies /> gets many props as a child of App
+  */
   render() {
     return (
       <div className="App">
