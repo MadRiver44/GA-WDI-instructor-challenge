@@ -88,8 +88,8 @@ class App extends Component {
       .catch(error => {
         console.log('Error fetching data', error);
       })
-      .then(jsonRes => {
-        this.setState({ data: jsonRes });
+      .then(res => {
+        this.setState({ data: res });
       });
   }
 
